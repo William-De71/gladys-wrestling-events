@@ -1,0 +1,2471 @@
+{
+  "manifest_version": 1,
+  "type": "calendar",
+  "name": "Wrestling Events",
+  "description": {
+    "en": "Wrestling shows of WWE, AEW, NJPW, TNA, AAA…: calendars, reminders and widgets.",
+    "fr": "Shows de catch WWE, AEW, NJPW, TNA, AAA… : calendriers, rappels et widgets.",
+    "de": "Wrestling-Shows von WWE, AEW, NJPW, TNA, AAA …: Kalender, Erinnerungen, Widgets.",
+    "es": "Shows de lucha libre de WWE, AEW, NJPW, TNA, AAA…: calendarios, avisos y widgets."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-wrestling-events:0.1.0",
+  "gladys_version": ">=5.2.0",
+  "categories": ["services", "multimedia"],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-wrestling-events/main/cover.jpg",
+  "transports": ["cloud"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "TheSportsDB",
+        "fr": "TheSportsDB",
+        "de": "TheSportsDB",
+        "es": "TheSportsDB"
+      },
+      "description": {
+        "en": "The program comes from TheSportsDB, an open sports database kept up to date by its community. Choose the promotions and the kinds of shows to follow, then enable the integration in “My calendars” below: each user gets one calendar per promotion. Nothing about you leaves your network: the integration only asks TheSportsDB for the shows of the chosen promotions.",
+        "fr": "Le programme vient de TheSportsDB, une base de données sportive ouverte tenue à jour par sa communauté. Choisissez les fédérations et les types de shows à suivre, puis activez l’intégration dans « Mes calendriers » ci-dessous : chaque utilisateur obtient un calendrier par fédération. Rien sur vous ne quitte votre réseau : l’intégration ne demande à TheSportsDB que les shows des fédérations choisies.",
+        "de": "Das Programm stammt von TheSportsDB, einer offenen Sportdatenbank, die ihre Community aktuell hält. Wählen Sie die Promotions und die Arten von Shows, dann aktivieren Sie die Integration unten unter „Meine Kalender“: Jeder Benutzer erhält einen Kalender pro Promotion. Nichts über Sie verlässt Ihr Netzwerk: Die Integration fragt TheSportsDB nur nach den Shows der gewählten Promotions.",
+        "es": "El programa procede de TheSportsDB, una base de datos deportiva abierta que mantiene al día su comunidad. Elija las empresas y los tipos de shows que seguir y active luego la integración en «Mis calendarios» más abajo: cada usuario obtiene un calendario por empresa. Nada sobre usted sale de su red: la integración solo pide a TheSportsDB los shows de las empresas elegidas."
+      },
+      "links": [
+        {
+          "url": "https://www.thesportsdb.com/sport/fighting",
+          "label": {
+            "en": "TheSportsDB – Fighting",
+            "fr": "TheSportsDB – Fighting",
+            "de": "TheSportsDB – Fighting",
+            "es": "TheSportsDB – Fighting"
+          }
+        }
+      ]
+    },
+    {
+      "key": "promotions",
+      "type": "multi_select",
+      "required": true,
+      "label": {
+        "en": "Promotions",
+        "fr": "Fédérations",
+        "de": "Promotions",
+        "es": "Empresas"
+      },
+      "description": {
+        "en": "One calendar per promotion. With the free key, each promotion costs one request per day of the program: five are a good start.",
+        "fr": "Un calendrier par fédération. Avec la clé gratuite, chaque fédération coûte une requête par jour de programme : cinq, c’est un bon début.",
+        "de": "Ein Kalender pro Promotion. Mit dem kostenlosen Schlüssel kostet jede Promotion eine Anfrage pro Programmtag: fünf sind ein guter Anfang.",
+        "es": "Un calendario por empresa. Con la clave gratuita, cada empresa cuesta una petición por día de programa: cinco son un buen comienzo."
+      },
+      "options": [
+        {
+          "value": "wwe",
+          "label": {
+            "en": "WWE",
+            "fr": "WWE",
+            "de": "WWE",
+            "es": "WWE"
+          }
+        },
+        {
+          "value": "aew",
+          "label": {
+            "en": "AEW",
+            "fr": "AEW",
+            "de": "AEW",
+            "es": "AEW"
+          }
+        },
+        {
+          "value": "njpw",
+          "label": {
+            "en": "NJPW · New Japan",
+            "fr": "NJPW · New Japan",
+            "de": "NJPW · New Japan",
+            "es": "NJPW · New Japan"
+          }
+        },
+        {
+          "value": "tna",
+          "label": {
+            "en": "TNA",
+            "fr": "TNA",
+            "de": "TNA",
+            "es": "TNA"
+          }
+        },
+        {
+          "value": "aaa",
+          "label": {
+            "en": "AAA · Lucha Libre AAA",
+            "fr": "AAA · Lucha Libre AAA",
+            "de": "AAA · Lucha Libre AAA",
+            "es": "AAA · Lucha Libre AAA"
+          }
+        },
+        {
+          "value": "roh",
+          "label": {
+            "en": "ROH · Ring of Honor",
+            "fr": "ROH · Ring of Honor",
+            "de": "ROH · Ring of Honor",
+            "es": "ROH · Ring of Honor"
+          }
+        },
+        {
+          "value": "cmll",
+          "label": {
+            "en": "CMLL",
+            "fr": "CMLL",
+            "de": "CMLL",
+            "es": "CMLL"
+          }
+        },
+        {
+          "value": "stardom",
+          "label": {
+            "en": "Stardom",
+            "fr": "Stardom",
+            "de": "Stardom",
+            "es": "Stardom"
+          }
+        },
+        {
+          "value": "ajpw",
+          "label": {
+            "en": "AJPW · All Japan",
+            "fr": "AJPW · All Japan",
+            "de": "AJPW · All Japan",
+            "es": "AJPW · All Japan"
+          }
+        },
+        {
+          "value": "ddt",
+          "label": {
+            "en": "DDT",
+            "fr": "DDT",
+            "de": "DDT",
+            "es": "DDT"
+          }
+        },
+        {
+          "value": "dragon_gate",
+          "label": {
+            "en": "Dragon Gate",
+            "fr": "Dragon Gate",
+            "de": "Dragon Gate",
+            "es": "Dragon Gate"
+          }
+        },
+        {
+          "value": "gcw",
+          "label": {
+            "en": "GCW",
+            "fr": "GCW",
+            "de": "GCW",
+            "es": "GCW"
+          }
+        },
+        {
+          "value": "revpro",
+          "label": {
+            "en": "RevPro",
+            "fr": "RevPro",
+            "de": "RevPro",
+            "es": "RevPro"
+          }
+        },
+        {
+          "value": "mlp",
+          "label": {
+            "en": "MLP · Maple Leaf Pro",
+            "fr": "MLP · Maple Leaf Pro",
+            "de": "MLP · Maple Leaf Pro",
+            "es": "MLP · Maple Leaf Pro"
+          }
+        }
+      ],
+      "default": ["wwe", "aew", "njpw", "tna", "aaa"]
+    },
+    {
+      "key": "kinds",
+      "type": "multi_select",
+      "required": true,
+      "label": {
+        "en": "Kinds of shows",
+        "fr": "Types de shows",
+        "de": "Arten von Shows",
+        "es": "Tipos de shows"
+      },
+      "description": {
+        "en": "Guessed from the name of the show. The calendars, the widgets and the scenes only see these.",
+        "fr": "Devinés d’après le nom du show. Les calendriers, les widgets et les scènes ne voient que ceux-là.",
+        "de": "Aus dem Namen der Show abgeleitet. Kalender, Widgets und Szenen sehen nur diese.",
+        "es": "Deducidos del nombre del show. Los calendarios, los widgets y las escenas solo ven estos."
+      },
+      "options": [
+        {
+          "value": "weekly",
+          "label": {
+            "en": "Weekly TV shows (RAW, SmackDown, Dynamite…)",
+            "fr": "Émissions hebdo (RAW, SmackDown, Dynamite…)",
+            "de": "Wöchentliche TV-Shows (RAW, SmackDown, Dynamite …)",
+            "es": "Programas semanales (RAW, SmackDown, Dynamite…)"
+          }
+        },
+        {
+          "value": "tour",
+          "label": {
+            "en": "Tour shows (Day 1, Day 2…)",
+            "fr": "Shows de tournée (Day 1, Day 2…)",
+            "de": "Tour-Shows (Day 1, Day 2 …)",
+            "es": "Shows de gira (Day 1, Day 2…)"
+          }
+        },
+        {
+          "value": "special",
+          "label": {
+            "en": "Major events (PLE, pay-per-view, specials)",
+            "fr": "Grands événements (PLE, pay-per-view, spéciaux)",
+            "de": "Großevents (PLE, Pay-per-View, Specials)",
+            "es": "Grandes eventos (PLE, pay-per-view, especiales)"
+          }
+        }
+      ],
+      "default": ["weekly", "tour", "special"]
+    },
+    {
+      "key": "horizon_days",
+      "type": "select",
+      "label": {
+        "en": "Program ahead",
+        "fr": "Programme à l’avance",
+        "de": "Programm im Voraus",
+        "es": "Programa por adelantado"
+      },
+      "description": {
+        "en": "How far ahead the program is read. The free key stops at 30 days; 60 and 90 days need a premium key.",
+        "fr": "Jusqu’où le programme est lu. La clé gratuite s’arrête à 30 jours ; 60 et 90 jours demandent une clé premium.",
+        "de": "Wie weit im Voraus das Programm gelesen wird. Der kostenlose Schlüssel endet bei 30 Tagen; 60 und 90 Tage brauchen einen Premium-Schlüssel.",
+        "es": "Hasta dónde se lee el programa. La clave gratuita se detiene en 30 días; 60 y 90 días requieren una clave premium."
+      },
+      "options": [
+        {
+          "value": "14",
+          "label": {
+            "en": "2 weeks",
+            "fr": "2 semaines",
+            "de": "2 Wochen",
+            "es": "2 semanas"
+          }
+        },
+        {
+          "value": "30",
+          "label": {
+            "en": "30 days",
+            "fr": "30 jours",
+            "de": "30 Tage",
+            "es": "30 días"
+          }
+        },
+        {
+          "value": "60",
+          "label": {
+            "en": "60 days (premium key)",
+            "fr": "60 jours (clé premium)",
+            "de": "60 Tage (Premium-Schlüssel)",
+            "es": "60 días (clave premium)"
+          }
+        },
+        {
+          "value": "90",
+          "label": {
+            "en": "90 days (premium key)",
+            "fr": "90 jours (clé premium)",
+            "de": "90 Tage (Premium-Schlüssel)",
+            "es": "90 días (clave premium)"
+          }
+        }
+      ],
+      "default": "30"
+    },
+    {
+      "key": "access",
+      "type": "section",
+      "label": {
+        "en": "Free or premium key",
+        "fr": "Clé gratuite ou premium",
+        "de": "Kostenloser oder Premium-Schlüssel",
+        "es": "Clave gratuita o premium"
+      },
+      "description": {
+        "en": "Without a key, the integration uses the free key of TheSportsDB, shared by everybody: one request every 7 seconds, at most 3 shows per promotion and day. The first reading of 30 days for 5 promotions takes about 20 minutes. A premium key (a paid subscription of TheSportsDB) reads a whole season in one request and allows 90 days.",
+        "fr": "Sans clé, l’intégration utilise la clé gratuite de TheSportsDB, partagée par tous : une requête toutes les 7 secondes, 3 shows au plus par fédération et par jour. La première lecture de 30 jours pour 5 fédérations prend une vingtaine de minutes. Une clé premium (abonnement payant de TheSportsDB) lit une saison entière en une requête et permet 90 jours.",
+        "de": "Ohne Schlüssel nutzt die Integration den kostenlosen, von allen geteilten Schlüssel von TheSportsDB: eine Anfrage alle 7 Sekunden, höchstens 3 Shows pro Promotion und Tag. Das erste Lesen von 30 Tagen für 5 Promotions dauert etwa 20 Minuten. Ein Premium-Schlüssel (kostenpflichtiges Abo von TheSportsDB) liest eine ganze Saison mit einer Anfrage und erlaubt 90 Tage.",
+        "es": "Sin clave, la integración usa la clave gratuita de TheSportsDB, compartida por todos: una petición cada 7 segundos, como mucho 3 shows por empresa y día. La primera lectura de 30 días para 5 empresas tarda unos 20 minutos. Una clave premium (suscripción de pago de TheSportsDB) lee una temporada entera en una petición y permite 90 días."
+      },
+      "links": [
+        {
+          "url": "https://www.thesportsdb.com/pricing",
+          "label": {
+            "en": "TheSportsDB premium",
+            "fr": "TheSportsDB premium",
+            "de": "TheSportsDB Premium",
+            "es": "TheSportsDB premium"
+          }
+        }
+      ]
+    },
+    {
+      "key": "api_key",
+      "type": "secret",
+      "label": {
+        "en": "Premium API key (optional)",
+        "fr": "Clé d’API premium (facultative)",
+        "de": "Premium-API-Schlüssel (optional)",
+        "es": "Clave de API premium (opcional)"
+      },
+      "description": {
+        "en": "Leave empty to use the free key.",
+        "fr": "Laissez vide pour utiliser la clé gratuite.",
+        "de": "Leer lassen, um den kostenlosen Schlüssel zu nutzen.",
+        "es": "Déjela vacía para usar la clave gratuita."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "label": {
+        "en": "Language of the scene texts",
+        "fr": "Langue des textes des scènes",
+        "de": "Sprache der Szenentexte",
+        "es": "Idioma de los textos de las escenas"
+      },
+      "description": {
+        "en": "For the sentence of the “next show” scene action. Automatic: the language of the dashboard.",
+        "fr": "Pour la phrase de l’action de scène « prochain show ». Automatique : la langue du tableau de bord.",
+        "de": "Für den Satz der Szenenaktion „nächste Show“. Automatisch: die Sprache des Dashboards.",
+        "es": "Para la frase de la acción de escena «próximo show». Automático: el idioma del panel."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": {
+            "en": "English",
+            "fr": "Anglais",
+            "de": "Englisch",
+            "es": "Inglés"
+          }
+        },
+        {
+          "value": "fr",
+          "label": {
+            "en": "French",
+            "fr": "Français",
+            "de": "Französisch",
+            "es": "Francés"
+          }
+        },
+        {
+          "value": "de",
+          "label": {
+            "en": "German",
+            "fr": "Allemand",
+            "de": "Deutsch",
+            "es": "Alemán"
+          }
+        },
+        {
+          "value": "es",
+          "label": {
+            "en": "Spanish",
+            "fr": "Espagnol",
+            "de": "Spanisch",
+            "es": "Español"
+          }
+        }
+      ],
+      "default": "auto"
+    }
+  ],
+  "widgets": [
+    {
+      "key": "upcoming",
+      "label": {
+        "en": "Next wrestling shows",
+        "fr": "Prochains shows de catch",
+        "de": "Nächste Wrestling-Shows",
+        "es": "Próximos shows"
+      },
+      "description": {
+        "en": "The next shows of your promotions, with date, time and venue.",
+        "fr": "Les prochains shows de vos fédérations, avec date, heure et salle.",
+        "de": "Die nächsten Shows Ihrer Promotions mit Datum, Uhrzeit und Halle.",
+        "es": "Los próximos shows de sus empresas, con fecha, hora y recinto."
+      },
+      "icon": "calendar",
+      "settings": [
+        {
+          "key": "promotions",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kinds",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        },
+        {
+          "key": "count",
+          "type": "select",
+          "label": {
+            "en": "Shows listed",
+            "fr": "Shows listés",
+            "de": "Angezeigte Shows",
+            "es": "Shows mostrados"
+          },
+          "options": [
+            {
+              "value": "3",
+              "label": {
+                "en": "3",
+                "fr": "3",
+                "de": "3",
+                "es": "3"
+              }
+            },
+            {
+              "value": "5",
+              "label": {
+                "en": "5",
+                "fr": "5",
+                "de": "5",
+                "es": "5"
+              }
+            },
+            {
+              "value": "8",
+              "label": {
+                "en": "8",
+                "fr": "8",
+                "de": "8",
+                "es": "8"
+              }
+            }
+          ],
+          "default": "5"
+        }
+      ]
+    },
+    {
+      "key": "next_show",
+      "label": {
+        "en": "Next wrestling show",
+        "fr": "Prochain show de catch",
+        "de": "Nächste Wrestling-Show",
+        "es": "Próximo show"
+      },
+      "description": {
+        "en": "Countdown to the next show, with its poster, venue and card.",
+        "fr": "Compte à rebours jusqu’au prochain show, avec affiche, salle et carte.",
+        "de": "Countdown bis zur nächsten Show, mit Poster, Halle und Card.",
+        "es": "Cuenta atrás hasta el próximo show, con cartel, recinto y cartelera."
+      },
+      "icon": "clock",
+      "settings": [
+        {
+          "key": "promotions",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kinds",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "show_starting",
+      "label": {
+        "en": "Wrestling: a show starts",
+        "fr": "Catch : un show commence",
+        "de": "Wrestling: eine Show beginnt",
+        "es": "Lucha libre: empieza un show"
+      },
+      "description": {
+        "en": "A show of a followed promotion starts, or will start in 15 min to 2 h (when its time is known).",
+        "fr": "Un show d’une fédération suivie commence, ou commencera dans 15 min à 2 h (si l’heure est connue).",
+        "de": "Eine Show einer verfolgten Promotion beginnt oder beginnt in 15 Min. bis 2 Std. (wenn die Uhrzeit bekannt ist).",
+        "es": "Empieza un show de una empresa seguida, o empezará en 15 min a 2 h (si se conoce la hora)."
+      },
+      "fields": [
+        {
+          "key": "lead",
+          "type": "select",
+          "label": {
+            "en": "When",
+            "fr": "Quand",
+            "de": "Wann",
+            "es": "Cuándo"
+          },
+          "options": [
+            {
+              "value": "0",
+              "label": {
+                "en": "At the bell",
+                "fr": "Au début du show",
+                "de": "Zu Beginn der Show",
+                "es": "Al empezar el show"
+              }
+            },
+            {
+              "value": "15",
+              "label": {
+                "en": "15 minutes before",
+                "fr": "15 minutes avant",
+                "de": "15 Minuten vorher",
+                "es": "15 minutos antes"
+              }
+            },
+            {
+              "value": "30",
+              "label": {
+                "en": "30 minutes before",
+                "fr": "30 minutes avant",
+                "de": "30 Minuten vorher",
+                "es": "30 minutos antes"
+              }
+            },
+            {
+              "value": "60",
+              "label": {
+                "en": "1 hour before",
+                "fr": "1 heure avant",
+                "de": "1 Stunde vorher",
+                "es": "1 hora antes"
+              }
+            },
+            {
+              "value": "120",
+              "label": {
+                "en": "2 hours before",
+                "fr": "2 heures avant",
+                "de": "2 Stunden vorher",
+                "es": "2 horas antes"
+              }
+            }
+          ]
+        },
+        {
+          "key": "promotion",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Show (with the promotion)",
+            "fr": "Show (avec la fédération)",
+            "de": "Show (mit Promotion)",
+            "es": "Show (con la empresa)"
+          },
+          "description": {
+            "en": "“WWE – Crown Jewel”, “AAA on FOX #38”.",
+            "fr": "« WWE – Crown Jewel », « AAA on FOX #38 ».",
+            "de": "„WWE – Crown Jewel“, „AAA on FOX #38“.",
+            "es": "«WWE – Crown Jewel», «AAA on FOX #38»."
+          }
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Show name",
+            "fr": "Nom du show",
+            "de": "Name der Show",
+            "es": "Nombre del show"
+          },
+          "description": {
+            "en": "As TheSportsDB writes it: “RAW #1743”.",
+            "fr": "Tel que TheSportsDB l’écrit : « RAW #1743 ».",
+            "de": "Wie TheSportsDB ihn schreibt: „RAW #1743“.",
+            "es": "Tal como lo escribe TheSportsDB: «RAW #1743»."
+          }
+        },
+        {
+          "key": "promotion",
+          "type": "string",
+          "label": {
+            "en": "Promotion (key)",
+            "fr": "Fédération (clé)",
+            "de": "Promotion (Schlüssel)",
+            "es": "Empresa (clave)"
+          },
+          "description": {
+            "en": "wwe, aew, njpw, tna, aaa…",
+            "fr": "wwe, aew, njpw, tna, aaa…",
+            "de": "wwe, aew, njpw, tna, aaa …",
+            "es": "wwe, aew, njpw, tna, aaa…"
+          }
+        },
+        {
+          "key": "promotion_name",
+          "type": "string",
+          "label": {
+            "en": "Promotion",
+            "fr": "Fédération",
+            "de": "Promotion",
+            "es": "Empresa"
+          }
+        },
+        {
+          "key": "kind",
+          "type": "string",
+          "label": {
+            "en": "Kind (key)",
+            "fr": "Type (clé)",
+            "de": "Art (Schlüssel)",
+            "es": "Tipo (clave)"
+          },
+          "description": {
+            "en": "weekly, tour or special.",
+            "fr": "weekly (hebdo), tour (tournée) ou special (grand événement).",
+            "de": "weekly (wöchentlich), tour oder special (Großevent).",
+            "es": "weekly (semanal), tour (gira) o special (gran evento)."
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date",
+            "fr": "Date",
+            "de": "Datum",
+            "es": "Fecha"
+          },
+          "description": {
+            "en": "YYYY-MM-DD, in the timezone of Gladys.",
+            "fr": "AAAA-MM-JJ, dans le fuseau horaire de Gladys.",
+            "de": "JJJJ-MM-TT, in der Zeitzone von Gladys.",
+            "es": "AAAA-MM-DD, en la zona horaria de Gladys."
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Time",
+            "fr": "Heure",
+            "de": "Uhrzeit",
+            "es": "Hora"
+          },
+          "description": {
+            "en": "HH:MM in the timezone of Gladys; empty when not announced.",
+            "fr": "HH:MM dans le fuseau horaire de Gladys ; vide si elle n’est pas annoncée.",
+            "de": "HH:MM in der Zeitzone von Gladys; leer, wenn nicht angekündigt.",
+            "es": "HH:MM en la zona horaria de Gladys; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "venue",
+          "type": "string",
+          "label": {
+            "en": "Venue",
+            "fr": "Salle",
+            "de": "Halle",
+            "es": "Recinto"
+          }
+        },
+        {
+          "key": "city",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          }
+        },
+        {
+          "key": "country",
+          "type": "string",
+          "label": {
+            "en": "Country",
+            "fr": "Pays",
+            "de": "Land",
+            "es": "País"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Venue, city and country",
+            "fr": "Salle, ville et pays",
+            "de": "Halle, Stadt und Land",
+            "es": "Recinto, ciudad y país"
+          }
+        },
+        {
+          "key": "card",
+          "type": "string",
+          "label": {
+            "en": "Card",
+            "fr": "Carte des matchs",
+            "de": "Card",
+            "es": "Cartelera"
+          },
+          "description": {
+            "en": "One match per line, in English; empty when not announced.",
+            "fr": "Un match par ligne, en anglais ; vide si elle n’est pas annoncée.",
+            "de": "Ein Match pro Zeile, auf Englisch; leer, wenn nicht angekündigt.",
+            "es": "Un combate por línea, en inglés; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Page on TheSportsDB",
+            "fr": "Page sur TheSportsDB",
+            "de": "Seite auf TheSportsDB",
+            "es": "Página en TheSportsDB"
+          }
+        },
+        {
+          "key": "show_id",
+          "type": "string",
+          "label": {
+            "en": "Show id (TheSportsDB)",
+            "fr": "Identifiant du show (TheSportsDB)",
+            "de": "Show-ID (TheSportsDB)",
+            "es": "Id del show (TheSportsDB)"
+          }
+        },
+        {
+          "key": "lead_minutes",
+          "type": "number",
+          "label": {
+            "en": "Minutes before the start",
+            "fr": "Minutes avant le début",
+            "de": "Minuten vor Beginn",
+            "es": "Minutos antes del inicio"
+          },
+          "description": {
+            "en": "0 at the bell.",
+            "fr": "0 au début du show.",
+            "de": "0 zu Beginn der Show.",
+            "es": "0 al empezar el show."
+          }
+        }
+      ]
+    },
+    {
+      "key": "show_announced",
+      "label": {
+        "en": "Wrestling: new show announced",
+        "fr": "Catch : nouveau show annoncé",
+        "de": "Wrestling: neue Show angekündigt",
+        "es": "Lucha libre: nuevo show anunciado"
+      },
+      "description": {
+        "en": "A show was added to the program of a followed promotion.",
+        "fr": "Un show a été ajouté au programme d’une fédération suivie.",
+        "de": "Eine Show wurde dem Programm einer verfolgten Promotion hinzugefügt.",
+        "es": "Se añadió un show al programa de una empresa seguida."
+      },
+      "fields": [
+        {
+          "key": "promotion",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Show (with the promotion)",
+            "fr": "Show (avec la fédération)",
+            "de": "Show (mit Promotion)",
+            "es": "Show (con la empresa)"
+          },
+          "description": {
+            "en": "“WWE – Crown Jewel”, “AAA on FOX #38”.",
+            "fr": "« WWE – Crown Jewel », « AAA on FOX #38 ».",
+            "de": "„WWE – Crown Jewel“, „AAA on FOX #38“.",
+            "es": "«WWE – Crown Jewel», «AAA on FOX #38»."
+          }
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Show name",
+            "fr": "Nom du show",
+            "de": "Name der Show",
+            "es": "Nombre del show"
+          },
+          "description": {
+            "en": "As TheSportsDB writes it: “RAW #1743”.",
+            "fr": "Tel que TheSportsDB l’écrit : « RAW #1743 ».",
+            "de": "Wie TheSportsDB ihn schreibt: „RAW #1743“.",
+            "es": "Tal como lo escribe TheSportsDB: «RAW #1743»."
+          }
+        },
+        {
+          "key": "promotion",
+          "type": "string",
+          "label": {
+            "en": "Promotion (key)",
+            "fr": "Fédération (clé)",
+            "de": "Promotion (Schlüssel)",
+            "es": "Empresa (clave)"
+          },
+          "description": {
+            "en": "wwe, aew, njpw, tna, aaa…",
+            "fr": "wwe, aew, njpw, tna, aaa…",
+            "de": "wwe, aew, njpw, tna, aaa …",
+            "es": "wwe, aew, njpw, tna, aaa…"
+          }
+        },
+        {
+          "key": "promotion_name",
+          "type": "string",
+          "label": {
+            "en": "Promotion",
+            "fr": "Fédération",
+            "de": "Promotion",
+            "es": "Empresa"
+          }
+        },
+        {
+          "key": "kind",
+          "type": "string",
+          "label": {
+            "en": "Kind (key)",
+            "fr": "Type (clé)",
+            "de": "Art (Schlüssel)",
+            "es": "Tipo (clave)"
+          },
+          "description": {
+            "en": "weekly, tour or special.",
+            "fr": "weekly (hebdo), tour (tournée) ou special (grand événement).",
+            "de": "weekly (wöchentlich), tour oder special (Großevent).",
+            "es": "weekly (semanal), tour (gira) o special (gran evento)."
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date",
+            "fr": "Date",
+            "de": "Datum",
+            "es": "Fecha"
+          },
+          "description": {
+            "en": "YYYY-MM-DD, in the timezone of Gladys.",
+            "fr": "AAAA-MM-JJ, dans le fuseau horaire de Gladys.",
+            "de": "JJJJ-MM-TT, in der Zeitzone von Gladys.",
+            "es": "AAAA-MM-DD, en la zona horaria de Gladys."
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Time",
+            "fr": "Heure",
+            "de": "Uhrzeit",
+            "es": "Hora"
+          },
+          "description": {
+            "en": "HH:MM in the timezone of Gladys; empty when not announced.",
+            "fr": "HH:MM dans le fuseau horaire de Gladys ; vide si elle n’est pas annoncée.",
+            "de": "HH:MM in der Zeitzone von Gladys; leer, wenn nicht angekündigt.",
+            "es": "HH:MM en la zona horaria de Gladys; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "venue",
+          "type": "string",
+          "label": {
+            "en": "Venue",
+            "fr": "Salle",
+            "de": "Halle",
+            "es": "Recinto"
+          }
+        },
+        {
+          "key": "city",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          }
+        },
+        {
+          "key": "country",
+          "type": "string",
+          "label": {
+            "en": "Country",
+            "fr": "Pays",
+            "de": "Land",
+            "es": "País"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Venue, city and country",
+            "fr": "Salle, ville et pays",
+            "de": "Halle, Stadt und Land",
+            "es": "Recinto, ciudad y país"
+          }
+        },
+        {
+          "key": "card",
+          "type": "string",
+          "label": {
+            "en": "Card",
+            "fr": "Carte des matchs",
+            "de": "Card",
+            "es": "Cartelera"
+          },
+          "description": {
+            "en": "One match per line, in English; empty when not announced.",
+            "fr": "Un match par ligne, en anglais ; vide si elle n’est pas annoncée.",
+            "de": "Ein Match pro Zeile, auf Englisch; leer, wenn nicht angekündigt.",
+            "es": "Un combate por línea, en inglés; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Page on TheSportsDB",
+            "fr": "Page sur TheSportsDB",
+            "de": "Seite auf TheSportsDB",
+            "es": "Página en TheSportsDB"
+          }
+        },
+        {
+          "key": "show_id",
+          "type": "string",
+          "label": {
+            "en": "Show id (TheSportsDB)",
+            "fr": "Identifiant du show (TheSportsDB)",
+            "de": "Show-ID (TheSportsDB)",
+            "es": "Id del show (TheSportsDB)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "card_updated",
+      "label": {
+        "en": "Wrestling: matches added to a card",
+        "fr": "Catch : matchs ajoutés à une carte",
+        "de": "Wrestling: Matches zur Card hinzugefügt",
+        "es": "Lucha libre: combates añadidos"
+      },
+      "description": {
+        "en": "New matches appear on the card of a show to come.",
+        "fr": "De nouveaux matchs apparaissent sur la carte d’un show à venir.",
+        "de": "Neue Matches erscheinen auf der Card einer kommenden Show.",
+        "es": "Aparecen nuevos combates en la cartelera de un show próximo."
+      },
+      "fields": [
+        {
+          "key": "promotion",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Show (with the promotion)",
+            "fr": "Show (avec la fédération)",
+            "de": "Show (mit Promotion)",
+            "es": "Show (con la empresa)"
+          },
+          "description": {
+            "en": "“WWE – Crown Jewel”, “AAA on FOX #38”.",
+            "fr": "« WWE – Crown Jewel », « AAA on FOX #38 ».",
+            "de": "„WWE – Crown Jewel“, „AAA on FOX #38“.",
+            "es": "«WWE – Crown Jewel», «AAA on FOX #38»."
+          }
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Show name",
+            "fr": "Nom du show",
+            "de": "Name der Show",
+            "es": "Nombre del show"
+          },
+          "description": {
+            "en": "As TheSportsDB writes it: “RAW #1743”.",
+            "fr": "Tel que TheSportsDB l’écrit : « RAW #1743 ».",
+            "de": "Wie TheSportsDB ihn schreibt: „RAW #1743“.",
+            "es": "Tal como lo escribe TheSportsDB: «RAW #1743»."
+          }
+        },
+        {
+          "key": "promotion",
+          "type": "string",
+          "label": {
+            "en": "Promotion (key)",
+            "fr": "Fédération (clé)",
+            "de": "Promotion (Schlüssel)",
+            "es": "Empresa (clave)"
+          },
+          "description": {
+            "en": "wwe, aew, njpw, tna, aaa…",
+            "fr": "wwe, aew, njpw, tna, aaa…",
+            "de": "wwe, aew, njpw, tna, aaa …",
+            "es": "wwe, aew, njpw, tna, aaa…"
+          }
+        },
+        {
+          "key": "promotion_name",
+          "type": "string",
+          "label": {
+            "en": "Promotion",
+            "fr": "Fédération",
+            "de": "Promotion",
+            "es": "Empresa"
+          }
+        },
+        {
+          "key": "kind",
+          "type": "string",
+          "label": {
+            "en": "Kind (key)",
+            "fr": "Type (clé)",
+            "de": "Art (Schlüssel)",
+            "es": "Tipo (clave)"
+          },
+          "description": {
+            "en": "weekly, tour or special.",
+            "fr": "weekly (hebdo), tour (tournée) ou special (grand événement).",
+            "de": "weekly (wöchentlich), tour oder special (Großevent).",
+            "es": "weekly (semanal), tour (gira) o special (gran evento)."
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date",
+            "fr": "Date",
+            "de": "Datum",
+            "es": "Fecha"
+          },
+          "description": {
+            "en": "YYYY-MM-DD, in the timezone of Gladys.",
+            "fr": "AAAA-MM-JJ, dans le fuseau horaire de Gladys.",
+            "de": "JJJJ-MM-TT, in der Zeitzone von Gladys.",
+            "es": "AAAA-MM-DD, en la zona horaria de Gladys."
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Time",
+            "fr": "Heure",
+            "de": "Uhrzeit",
+            "es": "Hora"
+          },
+          "description": {
+            "en": "HH:MM in the timezone of Gladys; empty when not announced.",
+            "fr": "HH:MM dans le fuseau horaire de Gladys ; vide si elle n’est pas annoncée.",
+            "de": "HH:MM in der Zeitzone von Gladys; leer, wenn nicht angekündigt.",
+            "es": "HH:MM en la zona horaria de Gladys; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "venue",
+          "type": "string",
+          "label": {
+            "en": "Venue",
+            "fr": "Salle",
+            "de": "Halle",
+            "es": "Recinto"
+          }
+        },
+        {
+          "key": "city",
+          "type": "string",
+          "label": {
+            "en": "City",
+            "fr": "Ville",
+            "de": "Stadt",
+            "es": "Ciudad"
+          }
+        },
+        {
+          "key": "country",
+          "type": "string",
+          "label": {
+            "en": "Country",
+            "fr": "Pays",
+            "de": "Land",
+            "es": "País"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Venue, city and country",
+            "fr": "Salle, ville et pays",
+            "de": "Halle, Stadt und Land",
+            "es": "Recinto, ciudad y país"
+          }
+        },
+        {
+          "key": "card",
+          "type": "string",
+          "label": {
+            "en": "Card",
+            "fr": "Carte des matchs",
+            "de": "Card",
+            "es": "Cartelera"
+          },
+          "description": {
+            "en": "One match per line, in English; empty when not announced.",
+            "fr": "Un match par ligne, en anglais ; vide si elle n’est pas annoncée.",
+            "de": "Ein Match pro Zeile, auf Englisch; leer, wenn nicht angekündigt.",
+            "es": "Un combate por línea, en inglés; vacía si no está anunciada."
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Page on TheSportsDB",
+            "fr": "Page sur TheSportsDB",
+            "de": "Seite auf TheSportsDB",
+            "es": "Página en TheSportsDB"
+          }
+        },
+        {
+          "key": "show_id",
+          "type": "string",
+          "label": {
+            "en": "Show id (TheSportsDB)",
+            "fr": "Identifiant du show (TheSportsDB)",
+            "de": "Show-ID (TheSportsDB)",
+            "es": "Id del show (TheSportsDB)"
+          }
+        },
+        {
+          "key": "new_matches",
+          "type": "string",
+          "label": {
+            "en": "New matches",
+            "fr": "Nouveaux matchs",
+            "de": "Neue Matches",
+            "es": "Nuevos combates"
+          },
+          "description": {
+            "en": "One per line, in English.",
+            "fr": "Un par ligne, en anglais.",
+            "de": "Eines pro Zeile, auf Englisch.",
+            "es": "Uno por línea, en inglés."
+          }
+        },
+        {
+          "key": "new_match_count",
+          "type": "number",
+          "label": {
+            "en": "Number of new matches",
+            "fr": "Nombre de nouveaux matchs",
+            "de": "Anzahl neuer Matches",
+            "es": "Número de nuevos combates"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_next_show",
+      "label": {
+        "en": "Wrestling: next show",
+        "fr": "Catch : prochain show",
+        "de": "Wrestling: nächste Show",
+        "es": "Lucha libre: próximo show"
+      },
+      "description": {
+        "en": "The next show of your promotions, to put in a message or a condition.",
+        "fr": "Le prochain show de vos fédérations, à mettre dans un message ou une condition.",
+        "de": "Die nächste Show Ihrer Promotions, für eine Nachricht oder eine Bedingung.",
+        "es": "El próximo show de sus empresas, para un mensaje o una condición."
+      },
+      "timeout_seconds": 10,
+      "fields": [
+        {
+          "key": "promotion",
+          "type": "multi_select",
+          "label": {
+            "en": "Promotions",
+            "fr": "Fédérations",
+            "de": "Promotions",
+            "es": "Empresas"
+          },
+          "description": {
+            "en": "Empty: every followed promotion.",
+            "fr": "Vide : toutes les fédérations suivies.",
+            "de": "Leer: alle verfolgten Promotions.",
+            "es": "Vacío: todas las empresas seguidas."
+          },
+          "options": [
+            {
+              "value": "wwe",
+              "label": {
+                "en": "WWE",
+                "fr": "WWE",
+                "de": "WWE",
+                "es": "WWE"
+              }
+            },
+            {
+              "value": "aew",
+              "label": {
+                "en": "AEW",
+                "fr": "AEW",
+                "de": "AEW",
+                "es": "AEW"
+              }
+            },
+            {
+              "value": "njpw",
+              "label": {
+                "en": "NJPW · New Japan",
+                "fr": "NJPW · New Japan",
+                "de": "NJPW · New Japan",
+                "es": "NJPW · New Japan"
+              }
+            },
+            {
+              "value": "tna",
+              "label": {
+                "en": "TNA",
+                "fr": "TNA",
+                "de": "TNA",
+                "es": "TNA"
+              }
+            },
+            {
+              "value": "aaa",
+              "label": {
+                "en": "AAA · Lucha Libre AAA",
+                "fr": "AAA · Lucha Libre AAA",
+                "de": "AAA · Lucha Libre AAA",
+                "es": "AAA · Lucha Libre AAA"
+              }
+            },
+            {
+              "value": "roh",
+              "label": {
+                "en": "ROH · Ring of Honor",
+                "fr": "ROH · Ring of Honor",
+                "de": "ROH · Ring of Honor",
+                "es": "ROH · Ring of Honor"
+              }
+            },
+            {
+              "value": "cmll",
+              "label": {
+                "en": "CMLL",
+                "fr": "CMLL",
+                "de": "CMLL",
+                "es": "CMLL"
+              }
+            },
+            {
+              "value": "stardom",
+              "label": {
+                "en": "Stardom",
+                "fr": "Stardom",
+                "de": "Stardom",
+                "es": "Stardom"
+              }
+            },
+            {
+              "value": "ajpw",
+              "label": {
+                "en": "AJPW · All Japan",
+                "fr": "AJPW · All Japan",
+                "de": "AJPW · All Japan",
+                "es": "AJPW · All Japan"
+              }
+            },
+            {
+              "value": "ddt",
+              "label": {
+                "en": "DDT",
+                "fr": "DDT",
+                "de": "DDT",
+                "es": "DDT"
+              }
+            },
+            {
+              "value": "dragon_gate",
+              "label": {
+                "en": "Dragon Gate",
+                "fr": "Dragon Gate",
+                "de": "Dragon Gate",
+                "es": "Dragon Gate"
+              }
+            },
+            {
+              "value": "gcw",
+              "label": {
+                "en": "GCW",
+                "fr": "GCW",
+                "de": "GCW",
+                "es": "GCW"
+              }
+            },
+            {
+              "value": "revpro",
+              "label": {
+                "en": "RevPro",
+                "fr": "RevPro",
+                "de": "RevPro",
+                "es": "RevPro"
+              }
+            },
+            {
+              "value": "mlp",
+              "label": {
+                "en": "MLP · Maple Leaf Pro",
+                "fr": "MLP · Maple Leaf Pro",
+                "de": "MLP · Maple Leaf Pro",
+                "es": "MLP · Maple Leaf Pro"
+              }
+            }
+          ]
+        },
+        {
+          "key": "kind",
+          "type": "multi_select",
+          "label": {
+            "en": "Kinds of shows",
+            "fr": "Types de shows",
+            "de": "Arten von Shows",
+            "es": "Tipos de shows"
+          },
+          "description": {
+            "en": "Empty: every kind kept in the configuration.",
+            "fr": "Vide : tous les types gardés dans la configuration.",
+            "de": "Leer: alle in der Konfiguration behaltenen Arten.",
+            "es": "Vacío: todos los tipos conservados en la configuración."
+          },
+          "options": [
+            {
+              "value": "weekly",
+              "label": {
+                "en": "Weekly TV show",
+                "fr": "Émission hebdo",
+                "de": "Wöchentliche TV-Show",
+                "es": "Programa semanal"
+              }
+            },
+            {
+              "value": "tour",
+              "label": {
+                "en": "Tour show",
+                "fr": "Show de tournée",
+                "de": "Tour-Show",
+                "es": "Show de gira"
+              }
+            },
+            {
+              "value": "special",
+              "label": {
+                "en": "Major event",
+                "fr": "Grand événement",
+                "de": "Großevent",
+                "es": "Gran evento"
+              }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "found",
+          "type": "boolean",
+          "label": {
+            "en": "Show found",
+            "fr": "Show trouvé",
+            "de": "Show gefunden",
+            "es": "Show encontrado"
+          }
+        },
+        {
+          "key": "title",
+          "type": "string",
+          "label": {
+            "en": "Show (with the promotion)",
+            "fr": "Show (avec la fédération)",
+            "de": "Show (mit Promotion)",
+            "es": "Show (con la empresa)"
+          }
+        },
+        {
+          "key": "name",
+          "type": "string",
+          "label": {
+            "en": "Show name",
+            "fr": "Nom du show",
+            "de": "Name der Show",
+            "es": "Nombre del show"
+          }
+        },
+        {
+          "key": "promotion",
+          "type": "string",
+          "label": {
+            "en": "Promotion",
+            "fr": "Fédération",
+            "de": "Promotion",
+            "es": "Empresa"
+          }
+        },
+        {
+          "key": "kind",
+          "type": "string",
+          "label": {
+            "en": "Kind of show",
+            "fr": "Type de show",
+            "de": "Art der Show",
+            "es": "Tipo de show"
+          }
+        },
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Date (YYYY-MM-DD)",
+            "fr": "Date (AAAA-MM-JJ)",
+            "de": "Datum (JJJJ-MM-TT)",
+            "es": "Fecha (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "time",
+          "type": "string",
+          "label": {
+            "en": "Time (HH:MM)",
+            "fr": "Heure (HH:MM)",
+            "de": "Uhrzeit (HH:MM)",
+            "es": "Hora (HH:MM)"
+          }
+        },
+        {
+          "key": "place",
+          "type": "string",
+          "label": {
+            "en": "Venue, city and country",
+            "fr": "Salle, ville et pays",
+            "de": "Halle, Stadt und Land",
+            "es": "Recinto, ciudad y país"
+          }
+        },
+        {
+          "key": "minutes_until",
+          "type": "number",
+          "label": {
+            "en": "Minutes until the start",
+            "fr": "Minutes avant le début",
+            "de": "Minuten bis zum Beginn",
+            "es": "Minutos hasta el inicio"
+          },
+          "description": {
+            "en": "-1 when the time is not announced.",
+            "fr": "-1 si l’heure n’est pas annoncée.",
+            "de": "-1, wenn die Uhrzeit nicht angekündigt ist.",
+            "es": "-1 si la hora no está anunciada."
+          }
+        },
+        {
+          "key": "card",
+          "type": "string",
+          "label": {
+            "en": "Card",
+            "fr": "Carte des matchs",
+            "de": "Card",
+            "es": "Cartelera"
+          }
+        },
+        {
+          "key": "url",
+          "type": "string",
+          "label": {
+            "en": "Page on TheSportsDB",
+            "fr": "Page sur TheSportsDB",
+            "de": "Seite auf TheSportsDB",
+            "es": "Página en TheSportsDB"
+          }
+        },
+        {
+          "key": "text",
+          "type": "string",
+          "label": {
+            "en": "Sentence",
+            "fr": "Phrase",
+            "de": "Satz",
+            "es": "Frase"
+          },
+          "description": {
+            "en": "“Next show: WWE – RAW #1743, Tuesday 20 October at 02:00, Pechanga Arena, San Diego, California, United States.”",
+            "fr": "« Prochain show : WWE – RAW #1743, mardi 20 octobre à 02:00, Pechanga Arena, San Diego, California, United States. »",
+            "de": "„Nächste Show: WWE – RAW #1743, Dienstag 20. Oktober um 02:00, Pechanga Arena, San Diego, California, United States.“",
+            "es": "«Próximo show: WWE – RAW #1743, martes 20 de octubre a las 02:00, Pechanga Arena, San Diego, California, United States.»"
+          }
+        }
+      ]
+    }
+  ]
+}

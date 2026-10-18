@@ -1,0 +1,20 @@
+Gladys Wrestling Events integration
+Copyright 2026 William Deren
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The program of the shows (names, dates, venues, cards, links) comes from
+TheSportsDB (https://www.thesportsdb.com), an open, crowd-sourced sports
+database, through its public API (v1). The integration reads it with the free
+key of TheSportsDB, or with the premium key of the user, and the widgets show
+the source and the time of the last reading. The files under test/fixtures are
+reduced copies of answers of this API, kept only to test their reading.
+
+No image of TheSportsDB is part of this repository: the posters of the widget
+illustrations are drawn by docs/illustrations/gen.mjs. In Gladys, the posters
+of the shows are downloaded from TheSportsDB when a dashboard shows them.
+
+WWE, AEW, NJPW, TNA, AAA, ROH, CMLL, Stardom, AJPW, DDT, Dragon Gate, GCW,
+RevPro and MLP are trademarks of their owners. This community integration is
+not affiliated with, endorsed or sponsored by TheSportsDB, Cagematch or any of
+these promotions.

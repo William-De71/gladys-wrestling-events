@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "idEvent": "2615604",
+      "strEvent": "AAA on FOX #38",
+      "idLeague": "4593",
+      "strLeague": "AAA",
+      "strSeason": "2026",
+      "strDescriptionEN": "Singles Match\r\nTaurus vs. El Fiscal\r\n\r\nAAA World Tag Team Title Match\r\nThe Wagner Brothers (El Hijo de Dr. Wagner Jr. & Galeno (c) vs. El Mesias & Mecha Wolf",
+      "strTimestamp": "2026-10-18T02:00:00",
+      "dateEvent": "2026-10-18",
+      "dateEventLocal": "2026-10-17",
+      "strTime": "02:00:00",
+      "strTimeLocal": "20:00:00",
+      "strVenue": "",
+      "strCity": "Leon, Guanajuato",
+      "strCountry": "Mexico",
+      "strThumb": "",
+      "strPoster": "",
+      "strVideo": "",
+      "strStatus": "",
+      "strPostponed": "no",
+      "strResult": "Singles Match\r\nTaurus defeats El Fiscal\r\n\r\nAAA World Tag Team Title Match\r\nThe Wagner Brothers (El Hijo de Dr. Wagner Jr. & Galeno (c) defeat El Mesias & Mecha Wolf"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "idEvent": "2599755",
+      "strEvent": "Super Junior Tag League Day 2",
+      "idLeague": "4449",
+      "strLeague": "NJPW",
+      "strSeason": "2026",
+      "strDescriptionEN": "",
+      "strTimestamp": "2026-10-25T00:00:00",
+      "dateEvent": "2026-10-25",
+      "dateEventLocal": "2026-10-25",
+      "strTime": "00:00:00",
+      "strTimeLocal": "",
+      "strVenue": "Korakuen Hall",
+      "strCity": "Tokyo",
+      "strCountry": "Japan",
+      "strThumb": "",
+      "strPoster": "",
+      "strVideo": "",
+      "strStatus": "",
+      "strPostponed": "no",
+      "strResult": ""
+    }
+  ]
+}
