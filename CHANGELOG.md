@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-10-18
 
 ### Added
 
@@ -16,3 +16,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Dashboard widgets: the next shows (list with posters, the card behind a tap), and the next show (countdown, time, poster, venue, card).
 - Cloud transport: the free key of TheSportsDB (one request every 7 seconds, 30 days ahead) or a premium key (whole seasons, 90 days ahead); what was read is kept in /data.
 - English, French, German and Spanish everywhere: settings, calendars, widgets, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-wrestling-events/releases/tag/v0.1.0
