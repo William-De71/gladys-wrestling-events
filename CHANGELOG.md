@@ -5,6 +5,12 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
+## [0.1.1] - 2026-10-24
+
+### Security
+
+- **security:** build the image on Node.js 24.22.1 or later ([7cf8ddf](https://github.com/William-De71/gladys-wrestling-events/commit/7cf8ddf034eb8b6d10f82f009468eeea64140175))
+
 ## [0.1.0] - 2026-10-18
 
 ### Added
@@ -17,4 +23,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Cloud transport: the free key of TheSportsDB (one request every 7 seconds, 30 days ahead) or a premium key (whole seasons, 90 days ahead); what was read is kept in /data.
 - English, French, German and Spanish everywhere: settings, calendars, widgets, scenes and documentation.
 
+[0.1.1]: https://github.com/William-De71/gladys-wrestling-events/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/William-De71/gladys-wrestling-events/releases/tag/v0.1.0
