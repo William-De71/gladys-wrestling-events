@@ -51,7 +51,7 @@ test('declares the cloud transport only: the API of TheSportsDB', () => {
 
 test('requires the Gladys of calendar integrations; no permission, no device', () => {
   assert.equal(manifest.gladys_version, '>=5.2.0');
-  assert.deepEqual(manifest.categories, ['services', 'multimedia']);
+  assert.deepEqual(manifest.categories, ['leisure']);
   for (const key of [
     'location',
     'network_wake',
