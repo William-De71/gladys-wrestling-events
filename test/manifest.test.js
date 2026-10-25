@@ -49,8 +49,8 @@ test('declares the cloud transport only: the API of TheSportsDB', () => {
   assert.match(source('../src/sportsdb.js'), /'https:\/\/www\.thesportsdb\.com\/api\/v1\/json'/);
 });
 
-test('requires the Gladys of calendar integrations; no permission, no device', () => {
-  assert.equal(manifest.gladys_version, '>=5.2.0');
+test('requires Gladys 5.3.0 (calendar integrations, catalog keywords); no permission, no device', () => {
+  assert.equal(manifest.gladys_version, '>=5.3.0');
   assert.deepEqual(manifest.categories, ['leisure']);
   for (const key of [
     'location',
@@ -189,4 +189,18 @@ test('offers the languages of the code, automatic by default', () => {
   const field = byKey(manifest.config_schema).get('language');
   assert.deepEqual(values(field), [AUTO_LANGUAGE, ...LANGUAGES]);
   assert.equal(field.default, AUTO_LANGUAGE);
+});
+
+test('catalog fields of Gladys 5.3: search keywords, available worldwide', () => {
+  assert.equal(manifest.gladys_version, '>=5.3.0');
+  assert.ok(Array.isArray(manifest.keywords), 'keywords');
+  assert.ok(manifest.keywords.length >= 1 && manifest.keywords.length <= 10, '1 to 10 keywords');
+  for (const keyword of manifest.keywords) {
+    assert.ok(keyword.length <= 30 && keyword.trim().length >= 2, keyword);
+  }
+  const normalized = manifest.keywords.map((keyword) => keyword.trim().toLowerCase());
+  assert.equal(new Set(normalized).size, normalized.length, 'unique once trimmed and lowercased');
+  assert.ok(!normalized.includes(manifest.name.toLowerCase()), 'the name is already searched');
+  // No `countries`: usable anywhere, the catalog shows it in every country.
+  assert.equal(manifest.countries, undefined);
 });

@@ -8,7 +8,7 @@ Das Programm stammt von [TheSportsDB](https://www.thesportsdb.com), einer offene
 
 ## Voraussetzungen
 
-- Gladys Assistant **5.2.0** oder neuer (Kalenderintegrationen).
+- Gladys Assistant **5.3.0** oder neuer (Kalenderintegrationen).
 - Internetzugang.
 - Optional: ein Premium-Schlüssel von TheSportsDB, für 60 oder 90 Tage im Voraus und schnelleres Lesen.
 
