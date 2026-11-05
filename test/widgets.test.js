@@ -31,9 +31,9 @@ const BASE = {
 
 /** The content the core would keep, in every language: nothing dropped. */
 function assertValid(content) {
-  const report = validateWidgetContent(content);
-  assert.deepEqual(report.errors ?? [], [], JSON.stringify(report));
-  assert.deepEqual(report.warnings ?? [], [], JSON.stringify(report));
+  // validateWidgetContent returns the list of what the core would drop.
+  const problems = validateWidgetContent(content);
+  assert.deepEqual(problems, [], JSON.stringify(problems));
 }
 
 test('upcoming: the next shows as cards, the time in the subtitle, the card behind a tap', () => {

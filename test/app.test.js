@@ -229,8 +229,7 @@ test('widgets: valid content in every language, the image served from its key', 
       for (const language of ['en', 'fr', 'de', 'es']) {
         const answer = await fake.widgetGet(key, { settings: {}, language });
         const content = answer.data?.content ?? answer.content ?? answer;
-        const report = validateWidgetContent(content);
-        assert.deepEqual(report.errors ?? [], [], `${key} ${language}`);
+        assert.deepEqual(validateWidgetContent(content), [], `${key} ${language}`);
       }
     }
     const upcoming = await fake.widgetGet('upcoming', { settings: {}, language: 'en' });
